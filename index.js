@@ -1,3 +1,6 @@
-import startGame from './src/cli.js';
+import { startGame, askName } from './src/cli.js';
 
-export default startGame;
+export default {
+  startGame,
+  askName,
+};
