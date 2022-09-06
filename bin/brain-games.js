@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-import gameCli from '../index.js';
+import games from '../index.js';
 
-const userName = gameCli.askName();
-gameCli.startGame(userName);
+games.gameCli.welcomeToGame();
+
+const userName = games.gameCli.askName();
+games.gameCli.sayHello(userName);

@@ -1,6 +1,7 @@
-import { startGame, askName } from './src/cli.js';
+import gameCli from './src/cli.js';
+import evenGame from './src/even-game.js';
 
 export default {
-  startGame,
-  askName,
+  gameCli,
+  evenGame,
 };

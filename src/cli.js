@@ -8,10 +8,10 @@ const sayHello = (name) => {
   console.log(`Hello, ${name}!`);
 };
 
-export const askName = () => readlineSync.question('May I have your name? ');
+const askName = () => readlineSync.question('May I have your name? ');
 
-export const startGame = (userName) => {
-  welcomeToGame();
-
-  sayHello(userName);
+export default {
+  welcomeToGame,
+  sayHello,
+  askName,
 };
