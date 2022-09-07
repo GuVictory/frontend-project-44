@@ -2,6 +2,7 @@ import randomInteger from '../utils/random-integer.js';
 import TEXTS from '../utils/game-texts.js';
 import gameLoop from '../utils/game-loop.js';
 import randomAction from '../utils/random-action.js';
+import { MIN_NUMBER, MAX_NUMBER } from '../utils/constants.js';
 
 const runGame = () => {
   const getCorrectAnswer = (numberToCheck) => {
@@ -18,7 +19,7 @@ const runGame = () => {
         return undefined;
     }
   };
-  const gameAction = () => `${randomInteger(1, 100)} ${randomAction()} ${randomInteger(1, 100)}`;
+  const gameAction = () => `${randomInteger(MIN_NUMBER, MAX_NUMBER)} ${randomAction()} ${randomInteger(MIN_NUMBER, MAX_NUMBER)}`;
 
   const gameRules = 'What is the result of the expression?';
 

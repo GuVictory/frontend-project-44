@@ -1,6 +1,9 @@
 import randomInteger from '../utils/random-integer.js';
 import TEXTS from '../utils/game-texts.js';
 import gameLoop from '../utils/game-loop.js';
+import { MIN_NUMBER, MAX_NUMBER } from '../utils/constants.js';
+
+const MAX_SIZE_OF_PROGRESSION = 10;
 
 const runGame = () => {
   const getCorrectAnswer = (answerToCheck) => {
@@ -26,15 +29,15 @@ const runGame = () => {
   };
 
   const gameAction = () => {
-    const startNumber = randomInteger(1, 100);
-    const progressionStep = randomInteger(1, 100);
+    const startNumber = randomInteger(MIN_NUMBER, MAX_NUMBER);
+    const progressionStep = randomInteger(MIN_NUMBER, MAX_NUMBER);
     const propgression = [startNumber];
 
-    for (let i = 1; i < 10; i += 1) {
+    for (let i = 1; i < MAX_SIZE_OF_PROGRESSION; i += 1) {
       propgression.push(propgression[i - 1] + progressionStep);
     }
 
-    propgression[randomInteger(0, 10)] = '..';
+    propgression[randomInteger(0, MAX_SIZE_OF_PROGRESSION)] = '..';
     return propgression.join(' ');
   };
 
