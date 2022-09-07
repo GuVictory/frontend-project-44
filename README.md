@@ -8,3 +8,6 @@
 
 ## Even Calc Game
 [![Even Calc Game](https://asciinema.org/a/P0vufsLP6igINiJRqNWU7diC4.svg)](https://asciinema.org/a/P0vufsLP6igINiJRqNWU7diC4)
+
+## Even GCD Game
+[![Even GCD Game](https://asciinema.org/a/bXZM86u4VqyXresEY5uv4ofqT.svg)](https://asciinema.org/a/bXZM86u4VqyXresEY5uv4ofqT)

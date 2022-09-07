@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import gameCli from '../cli.js';
 
-const gameLoop = (gameAction, checkAnswer, TEXTS) => {
+const gameLoop = (gameAction, getCorrectAnswer, TEXTS) => {
   gameCli.welcomeToGame();
   const userName = gameCli.askName();
   gameCli.sayHello(userName);
@@ -19,7 +19,7 @@ const gameLoop = (gameAction, checkAnswer, TEXTS) => {
 
     answer = readlineSync.question(TEXTS.yourAnswer());
 
-    if (answer === String(checkAnswer(resultToCheck))) {
+    if (answer === String(getCorrectAnswer(resultToCheck))) {
       console.log(TEXTS.correct());
       correctAnswers += 1;
     } else {
@@ -30,7 +30,7 @@ const gameLoop = (gameAction, checkAnswer, TEXTS) => {
   if (correctAnswers === 3) {
     console.log(TEXTS.congratulations(userName));
   } else {
-    console.log(TEXTS.notCorrectAnswer(answer, checkAnswer(resultToCheck)));
+    console.log(TEXTS.notCorrectAnswer(answer, getCorrectAnswer(resultToCheck)));
     console.log(TEXTS.tryAgain(userName));
   }
 };

@@ -4,7 +4,7 @@ import gameLoop from '../utils/game-loop.js';
 import randomAction from '../utils/random-action.js';
 
 const runGame = () => {
-  const checkCorrectAnswer = (numberToCheck) => {
+  const getCorrectAnswer = (numberToCheck) => {
     const [firstOper, action, secondOper] = numberToCheck.split(' ');
 
     switch (action) {
@@ -22,7 +22,7 @@ const runGame = () => {
 
   const gameRules = 'What is the result of the expression?';
 
-  gameLoop(gameAction, checkCorrectAnswer, TEXTS(gameRules));
+  gameLoop(gameAction, getCorrectAnswer, TEXTS(gameRules));
 };
 
 export default runGame;
