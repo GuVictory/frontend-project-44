@@ -6,8 +6,11 @@
 ## Even Brain Game
 [![Even Brain Game](https://asciinema.org/a/LztfC0M7lShTNtpGD3VGFXjp3.svg)](https://asciinema.org/a/LztfC0M7lShTNtpGD3VGFXjp3)
 
-## Even Calc Game
-[![Even Calc Game](https://asciinema.org/a/P0vufsLP6igINiJRqNWU7diC4.svg)](https://asciinema.org/a/P0vufsLP6igINiJRqNWU7diC4)
+## Calc Brain Game
+[![Calc Brain Game](https://asciinema.org/a/P0vufsLP6igINiJRqNWU7diC4.svg)](https://asciinema.org/a/P0vufsLP6igINiJRqNWU7diC4)
 
-## Even GCD Game
-[![Even GCD Game](https://asciinema.org/a/bXZM86u4VqyXresEY5uv4ofqT.svg)](https://asciinema.org/a/bXZM86u4VqyXresEY5uv4ofqT)
+## GCD Brain Game
+[![GCD Brain Game](https://asciinema.org/a/bXZM86u4VqyXresEY5uv4ofqT.svg)](https://asciinema.org/a/bXZM86u4VqyXresEY5uv4ofqT)
+
+## Progression Brain Game
+[![Progression Brain Game](https://asciinema.org/a/W02OspBCAa76IuDnlb3MHaY4T.svg)](https://asciinema.org/a/W02OspBCAa76IuDnlb3MHaY4T)
