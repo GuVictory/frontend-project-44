@@ -1,6 +1,5 @@
 import randomInteger from '../utils/random-integer.js';
-import TEXTS from '../utils/game-texts.js';
-import gameLoop from '../utils/game-loop.js';
+import { gameLoop } from '../index.js';
 import isPrimeNum from '../utils/prime-check.js';
 import { MIN_NUMBER, MAX_NUMBER } from '../utils/constants.js';
 
@@ -11,7 +10,7 @@ const runGame = () => {
 
   const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-  gameLoop(gameAction, getCorrectAnswer, TEXTS(gameRules));
+  gameLoop(gameAction, getCorrectAnswer, gameRules);
 };
 
 export default runGame;

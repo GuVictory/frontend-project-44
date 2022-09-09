@@ -1,6 +1,5 @@
 import randomInteger from '../utils/random-integer.js';
-import TEXTS from '../utils/game-texts.js';
-import gameLoop from '../utils/game-loop.js';
+import { gameLoop } from '../index.js';
 import { MIN_NUMBER, MAX_NUMBER } from '../utils/constants.js';
 
 const runGame = () => {
@@ -8,7 +7,7 @@ const runGame = () => {
   const gameAction = () => randomInteger(MIN_NUMBER, MAX_NUMBER);
   const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  gameLoop(gameAction, getCorrectAnswer, TEXTS(gameRules));
+  gameLoop(gameAction, getCorrectAnswer, gameRules);
 };
 
 export default runGame;
