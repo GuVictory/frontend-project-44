@@ -1,6 +1,5 @@
 import randomInteger from '../utils/random-integer.js';
-import TEXTS from '../utils/game-texts.js';
-import gameLoop from '../utils/game-loop.js';
+import { gameLoop } from '../index.js';
 import { MIN_NUMBER, MAX_NUMBER } from '../utils/constants.js';
 
 const MAX_SIZE_OF_PROGRESSION = 10;
@@ -43,7 +42,7 @@ const runGame = () => {
 
   const gameRules = 'What number is missing in the progression?';
 
-  gameLoop(gameAction, getCorrectAnswer, TEXTS(gameRules));
+  gameLoop(gameAction, getCorrectAnswer, gameRules);
 };
 
 export default runGame;

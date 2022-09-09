@@ -2,7 +2,7 @@
 
 import games from '../index.js';
 
-games.gameCli.welcomeToGame();
+games.welcomeToGame();
 
-const userName = games.gameCli.askName();
-games.gameCli.sayHello(userName);
+const userName = games.askName();
+games.sayHello(userName);
