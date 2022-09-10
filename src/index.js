@@ -1,10 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  CONGRATULATIONS_TEXT,
   CORRECT_TEXT,
-  NOT_CORRECT_ANSWER_TEXT,
-  QUESTION_TEXT,
-  TRY_AGAIN_TEXT,
   YOUR_ANSWER_TEXT,
 } from './utils/constants.js';
 
@@ -18,34 +14,37 @@ export const sayHello = (name) => {
 
 export const askName = () => readlineSync.question('May I have your name? ');
 
+const getQuestionText = (question) => `Question: ${question}`;
+const getCongatulationsText = (name) => `Congratulations, ${name}!`;
+const getNotCorrectAnswerText = (answer, correctAnswer) => `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`;
+const getTryAgainText = (name) => `Let's try again, ${name}!`;
+
 export const gameLoop = (gameAction, getCorrectAnswer, rules) => {
   welcomeToGame();
   const userName = askName();
   sayHello(userName);
 
   let correctAnswers = 0;
-  let answer = '';
-  let resultToCheck;
 
   console.log(rules);
 
   while (correctAnswers < 3) {
-    resultToCheck = gameAction();
+    const resultToCheck = gameAction();
 
-    console.log(QUESTION_TEXT(resultToCheck));
+    console.log(getQuestionText(resultToCheck));
 
-    answer = readlineSync.question(YOUR_ANSWER_TEXT);
+    const answer = readlineSync.question(YOUR_ANSWER_TEXT);
 
     if (answer === String(getCorrectAnswer(resultToCheck))) {
       console.log(CORRECT_TEXT);
       correctAnswers += 1;
 
       if (correctAnswers === 3) {
-        console.log(CONGRATULATIONS_TEXT(userName));
+        console.log(getCongatulationsText(userName));
       }
     } else {
-      console.log(NOT_CORRECT_ANSWER_TEXT(answer, getCorrectAnswer(resultToCheck)));
-      console.log(TRY_AGAIN_TEXT(userName));
+      console.log(getNotCorrectAnswerText(answer, getCorrectAnswer(resultToCheck)));
+      console.log(getTryAgainText(userName));
       break;
     }
   }
