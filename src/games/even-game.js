@@ -1,13 +1,21 @@
 import randomInteger from '../utils/random-integer.js';
 import { gameLoop } from '../index.js';
 import { MIN_NUMBER, MAX_NUMBER } from '../utils/constants.js';
+import isEven from '../utils/is-even.js';
 
 const runGame = () => {
-  const getCorrectAnswer = (numberToCheck) => (numberToCheck % 2 === 0 ? 'yes' : 'no');
-  const gameAction = () => randomInteger(MIN_NUMBER, MAX_NUMBER);
+  const gameAction = () => {
+    const question = randomInteger(MIN_NUMBER, MAX_NUMBER);
+    const answer = (isEven(question) ? 'yes' : 'no');
+
+    return {
+      question,
+      answer,
+    };
+  };
   const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  gameLoop(gameAction, getCorrectAnswer, gameRules);
+  gameLoop(gameAction, gameRules);
 };
 
 export default runGame;

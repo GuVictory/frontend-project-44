@@ -19,7 +19,7 @@ const getCongatulationsText = (name) => `Congratulations, ${name}!`;
 const getNotCorrectAnswerText = (answer, correctAnswer) => `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`;
 const getTryAgainText = (name) => `Let's try again, ${name}!`;
 
-export const gameLoop = (gameAction, getCorrectAnswer, rules) => {
+export const gameLoop = (gameAction, rules) => {
   welcomeToGame();
   const userName = askName();
   sayHello(userName);
@@ -31,11 +31,11 @@ export const gameLoop = (gameAction, getCorrectAnswer, rules) => {
   while (correctAnswers < 3) {
     const resultToCheck = gameAction();
 
-    console.log(getQuestionText(resultToCheck));
+    console.log(getQuestionText(resultToCheck.question));
 
     const answer = readlineSync.question(YOUR_ANSWER_TEXT);
 
-    if (answer === String(getCorrectAnswer(resultToCheck))) {
+    if (answer === String(resultToCheck.answer)) {
       console.log(CORRECT_TEXT);
       correctAnswers += 1;
 
@@ -43,7 +43,7 @@ export const gameLoop = (gameAction, getCorrectAnswer, rules) => {
         console.log(getCongatulationsText(userName));
       }
     } else {
-      console.log(getNotCorrectAnswerText(answer, getCorrectAnswer(resultToCheck)));
+      console.log(getNotCorrectAnswerText(answer, resultToCheck.answer));
       console.log(getTryAgainText(userName));
       break;
     }

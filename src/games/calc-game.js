@@ -4,25 +4,35 @@ import randomAction from '../utils/random-action.js';
 import { MIN_NUMBER, MAX_NUMBER } from '../utils/constants.js';
 
 const runGame = () => {
-  const getCorrectAnswer = (numberToCheck) => {
-    const [firstOper, action, secondOper] = numberToCheck.split(' ');
+  const gameAction = () => {
+    const firstOper = randomInteger(MIN_NUMBER, MAX_NUMBER);
+    const secondOper = randomInteger(MIN_NUMBER, MAX_NUMBER);
+    const action = randomAction();
+    let answer;
 
     switch (action) {
       case '+':
-        return Number(firstOper) + Number(secondOper);
+        answer = Number(firstOper) + Number(secondOper);
+        break;
       case '-':
-        return Number(firstOper) - Number(secondOper);
+        answer = Number(firstOper) - Number(secondOper);
+        break;
       case '*':
-        return Number(firstOper) * Number(secondOper);
+        answer = Number(firstOper) * Number(secondOper);
+        break;
       default:
-        return undefined;
+        throw new Error(`Unknown action: '${action}'!`);
     }
+
+    return {
+      question: `${firstOper} ${action} ${secondOper}`,
+      answer,
+    };
   };
-  const gameAction = () => `${randomInteger(MIN_NUMBER, MAX_NUMBER)} ${randomAction()} ${randomInteger(MIN_NUMBER, MAX_NUMBER)}`;
 
   const gameRules = 'What is the result of the expression?';
 
-  gameLoop(gameAction, getCorrectAnswer, gameRules);
+  gameLoop(gameAction, gameRules);
 };
 
 export default runGame;

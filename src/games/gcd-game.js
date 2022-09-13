@@ -4,16 +4,20 @@ import GCD from '../utils/GCD.js';
 import { MIN_NUMBER, MAX_NUMBER } from '../utils/constants.js';
 
 const runGame = () => {
-  const getCorrectAnswer = (numberToCheck) => {
-    const [firstNumber, secondNumber] = numberToCheck.split(' ');
-    return GCD(Number(firstNumber), Number(secondNumber));
-  };
+  const gameAction = () => {
+    const firstNumber = randomInteger(MIN_NUMBER, MAX_NUMBER);
+    const secondNumber = randomInteger(MIN_NUMBER, MAX_NUMBER);
+    const answer = GCD(firstNumber, secondNumber);
 
-  const gameAction = () => `${randomInteger(MIN_NUMBER, MAX_NUMBER)} ${randomInteger(MIN_NUMBER, MAX_NUMBER)}`;
+    return {
+      question: `${firstNumber} ${secondNumber}`,
+      answer,
+    };
+  };
 
   const gameRules = 'Find the greatest common divisor of given numbers.';
 
-  gameLoop(gameAction, getCorrectAnswer, gameRules);
+  gameLoop(gameAction, gameRules);
 };
 
 export default runGame;
